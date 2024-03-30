@@ -1,0 +1,104 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:project1/utilities/constants.dart';
+import 'package:project1/screens/screen.dart';
+import 'package:project1/widgets/widgets.dart';
+
+class loginpagee extends StatefulWidget {
+  const loginpagee({super.key});
+
+  @override
+  State<loginpagee> createState() => _loginpageeState();
+}
+
+class _loginpageeState extends State<loginpagee> {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        BackgroundImage(
+          image: 'images/login2.jpg',
+        ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Column(
+            children: <Widget>[
+              Flexible(
+                child: Center(
+                  child: Text(
+                    'IRIS',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 60,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextInputField(
+                    icon: Icons.email,
+                    hint: 'Email',
+                    inputType: TextInputType.emailAddress,
+                    inputAction: TextInputAction.next,
+                    controller: emailController,
+                  ),
+                  PasswordInput(
+                    icon: Icons.lock,
+                    hint: 'Password',
+                    inputType: TextInputType.name,
+                    inputAction: TextInputAction.done,
+                    controller: passwordController,
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, 'ForgotPassword'),
+                    child: Text(
+                      'Forgot Password?',
+                      style: kBodyText,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  RoundedButton(
+                    buttonName: 'Login',
+                    email: emailController.text,
+                    password: passwordController.text,
+                    username: usernameController.text,
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                ],
+              ),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, 'CreateNewAccount'),
+                child: Container(
+                  child: Text(
+                    'Create New Account',
+                    style: kBodyText,
+                  ),
+                  decoration: BoxDecoration(
+                      border:
+                          Border(bottom: BorderSide(width: 1, color: kWhite))),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
