@@ -14,16 +14,18 @@ class ForgetPassword extends StatefulWidget {
 
 class _ForgetPasswordState extends State<ForgetPassword> {
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        BackgroundImage(image: 'images/login2.jpg'),
+        BackgroundImage(image: 'images/IRIS3.jpeg'),
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Color.fromARGB(187, 22, 21, 21),
             elevation: 0,
             leading: IconButton(
               onPressed: () {
@@ -31,13 +33,15 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               },
               icon: Icon(
                 Icons.arrow_back_ios,
-                color: kWhite,
+                color: Color(0xA5FFFFFF),
               ),
             ),
-            title: Text(
-              'Forgot Password',
-              style: kBodyText,
-            ),
+            title: Text('Forgot Password',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xA5FFFFFF),
+                )),
             centerTitle: true,
           ),
           body: Column(
@@ -46,14 +50,16 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: size.height * 0.1,
+                      height: size.height * 0.5,
                     ),
                     Container(
                       width: size.width * 0.8,
                       child: Text(
-                        'Enter Your Email We Will Send Instruction To Reset Your Password',
-                        style: kBodyText,
-                      ),
+                          'Enter Your Email We Will Send Instruction To Reset Your Password',
+                          style: TextStyle(
+                            color: Color(0xA5FFFFFF),
+                            fontSize: 22,
+                          )),
                     ),
                     SizedBox(
                       height: 20,
@@ -70,9 +76,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     ),
                     RoundedButton(
                       buttonName: 'Send',
-                      email: emailController.text,
-                      password: " ",
-                      username: " ",
+                      emailController: emailController,
+                      passwordController: passwordController,
+                      usernameController: usernameController,
                     )
                   ],
                 ),

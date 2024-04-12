@@ -26,4 +26,4 @@ async function handleSignup(req, res) {
     }
   }
   
-  module.exports = { handleSignup };
+  module.exports = { handleSignup };

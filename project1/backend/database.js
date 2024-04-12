@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 //db
-//mongodb+srv://zeinafawziad:x69qBREA7fLZcXYd@database.qfgldpf.mongodb.net/?retryWrites=true&w=majority&appName=database
+//mongodb+srv://randnabil2019:yAVXwXLRfeSDAzRy@database.3pz4a6u.mongodb.net/?retryWrites=true&w=majority&appName=database
 
 async function connectDB(){
     await mongoose.connect("mongodb+srv://zeinafawziad:x69qBREA7fLZcXYd@database.qfgldpf.mongodb.net/?retryWrites=true&w=majority&appName=database");

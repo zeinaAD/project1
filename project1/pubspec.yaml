@@ -60,7 +60,26 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/login2.jpg
-  #   - images/a_dot_ham.jpeg
+    - images/logo1.jpg
+    - images/gold.jpg
+    - images/diam.jpg
+    - images/sale.jpeg
+    - images/flogo1.jpg
+    - images/logo2.jpg
+    - images/earring.jpg
+    - images/ring.jpg
+    - images/Necklace.jpg
+    - images/jewellery.png
+    - images/IRIS.png
+    - images/IRIS1.png
+    - images/IRIS2.png
+    - images/IRIS3.jpeg
+    - images/hpl.png
+    - images/jewellery (1).png
+    - images/jewe1.png
+    - images/jewe9.png
+    - images/gold1.jpg
+    - images/diam1.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -73,11 +92,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: Cormorant_Garamond
+      fonts:
+        - asset: fonts/Cormorant_Garamond/CormorantGaramond-Bold.ttf
+  #     - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

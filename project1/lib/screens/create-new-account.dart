@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:project1/ipaddress.dart';
 import 'package:project1/utilities/constants.dart';
 import 'package:project1/widgets/background-image.dart';
+import 'package:project1/widgets/confirm-password.dart';
 import 'package:project1/widgets/password-input.dart';
 import 'package:project1/widgets/rounded-button.dart';
 import 'package:project1/widgets/text-field-input.dart';
@@ -19,6 +20,8 @@ class CreateNewAccount extends StatefulWidget {
 class _CreateNewAccountState extends State<CreateNewAccount> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmpasswordController =
+      TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
@@ -26,7 +29,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
     Size size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        BackgroundImage(image: 'images/login2.jpg'),
+        BackgroundImage(image: 'images/IRIS3.jpeg'),
         Scaffold(
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
@@ -43,12 +46,12 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
                           filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
                           child: CircleAvatar(
                             radius: size.width * 0.14,
-                            backgroundColor: Colors.grey[400]!.withOpacity(
+                            backgroundColor: kcontentColor!.withOpacity(
                               0.4,
                             ),
                             child: Icon(
                               Icons.account_circle,
-                              color: kWhite,
+                              color: kourcolor1,
                               size: size.width * 0.1,
                             ),
                           ),
@@ -62,7 +65,7 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
                         height: size.width * 0.1,
                         width: size.width * 0.1,
                         decoration: BoxDecoration(
-                          color: kBlue,
+                          color: kourcolor1,
                           shape: BoxShape.circle,
                           border: Border.all(color: kWhite, width: 2),
                         ),
@@ -102,21 +105,21 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
                         inputAction: TextInputAction.next,
                         controller: passwordController,
                       ),
-                      PasswordInput(
+                      ConfirmPassword(
                         icon: Icons.lock,
                         hint: 'Confirm Password',
                         inputType: TextInputType.name,
                         inputAction: TextInputAction.done,
-                        controller: passwordController,
+                        controller: confirmpasswordController,
                       ),
                       SizedBox(
                         height: 25,
                       ),
                       RoundedButton(
                         buttonName: 'Register',
-                        email: emailController.text,
-                        password: passwordController.text,
-                        username: usernameController.text,
+                        emailController: emailController,
+                        passwordController: passwordController,
+                        usernameController: usernameController,
                       ),
                       SizedBox(
                         height: 30,
@@ -126,16 +129,27 @@ class _CreateNewAccountState extends State<CreateNewAccount> {
                         children: [
                           Text(
                             'Already have an account?',
-                            style: kBodyText,
+                            style: TextStyle(
+                          color: Color(0xA5FFFFFF),
+                          fontSize: 22,
+                        ),
                           ),
                           GestureDetector(
                             onTap: () {
                               Navigator.pushNamed(context, '/');
                             },
                             child: Text(
-                              'Login',
-                              style: kBodyText.copyWith(
-                                  color: kBlue, fontWeight: FontWeight.bold),
+                              ' Login',
+                              /* style: kBodyText.copyWith(
+                                  color: kBlue, fontWeight: FontWeight.bold), */
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Colors.white,
+                                   fontWeight: FontWeight.bold,
+                                  //  color: Color.fromARGB(180, 192, 187, 187),
+                                  color: Color(0xA5FFFFFF),
+                                    fontSize: 22,
+                                  ),
                             ),
                           ),
                         ],
